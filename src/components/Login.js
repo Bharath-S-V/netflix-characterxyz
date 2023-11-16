@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import Logo from './Logo';
+import { FcGoogle } from 'react-icons/fc';
+import { signIn } from 'next-auth/react';
 
 const Login = () => {
   return (
-    <div className='login_bg_gradient bg-cover h-screen grid place-items-center'>login</div>
-  )
-}
+    <>
+      {' '}
+      <div className="login_bg_gradient bg-cover h-screen grid place-items-center">
+        <Logo style="w-52 absolute left-0 top-0 m-8" />
+        <div className="bg-[rgba(0,0,0,0.75)] p-10 w-80 space-y-6">
+          <h2 className="text-3xl font-medium">Sign in</h2>
+          <button className="bg-white text-black flex gap-2 items-center p-4 text-xl" onClick={()=>signIn("google")}>
+            <FcGoogle className='text-3x1'/>
+            SignIn With Google
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Login
+export default Login;

@@ -7,9 +7,23 @@
     background-image: linear-gradient(
         0deg,
         rgba(0, 0, 0, 0.8) 0,
-        transparent 60%, /* Corrected typo here */
-        rgba(0, 0, 0, 0.8)
-    ),
-    url('/login__bg.jpg');
+        transparent 60%,
+        /* Corrected typo here */ rgba(0, 0, 0, 0.8)
+      ),
+      url('/login__bg.jpg');
+  }
 }
+
+@layer base {
+  html,
+  body {
+    @apply overflow-x-hidden;
+  }
+  body {
+    @apply relative text-white bg-[#141414];
+  }
+}
+
+.headerLink {
+  @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3];
 }
