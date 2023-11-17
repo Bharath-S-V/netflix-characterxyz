@@ -2,11 +2,10 @@
 import Head from 'next/head';
 import { getSession, useSession } from 'next-auth/react';
 import Login from '@/components/Login';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import request from '@/utils/request';
-
-
+import Row from '@/components/Row';
+import Footer from '@/components/Footer';
 
 export default function Home({
   moviePosters,
@@ -29,9 +28,17 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="relative bg-gradient-to-b from-gray-900/10 to-[#010511]">
         <Hero moviePosters={moviePosters} />
-        <Navbar />
+        <section className="container pb-32">
+          <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Documentaries" movies={documentaries} />
+        </section>
       </main>
     </>
   );
