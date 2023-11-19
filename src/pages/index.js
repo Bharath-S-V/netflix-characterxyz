@@ -40,6 +40,7 @@ export default function Home({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
+<Footer />
     </>
   );
 }

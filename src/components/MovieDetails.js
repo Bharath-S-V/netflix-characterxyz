@@ -1,13 +1,14 @@
-import React from "react";
-import Navbar from "./Navbar";
-import Image from "next/image";
-import { baseUrl } from "@/utils/constant";
-import { IoIosInformationCircle } from "react-icons/io";
-import { FaPlay } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+import React from 'react';
+import Navbar from './Navbar';
+import Image from 'next/image';
+import { baseUrl } from '@/utils/constant';
+import { IoIosInformationCircle } from 'react-icons/io';
+import { FaPlay } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
 
-import dynamic from "next/dynamic";
-const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
+import dynamic from 'next/dynamic';
+import Footer from './Footer';
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 const MovieDetails = ({ movie, showPlayer, setShowPlayer, trailerURL }) => {
   return (
@@ -51,7 +52,7 @@ const MovieDetails = ({ movie, showPlayer, setShowPlayer, trailerURL }) => {
 
         <div
           className={`absolute top-3 inset-x-[7%] md:inset-x-[13%] rounded overflow-hidden transition duration-1000 ${
-            showPlayer ? "opacity-100 z-50" : "opacity-0 -z-10"
+            showPlayer ? 'opacity-100 z-50' : 'opacity-0 -z-10'
           }`}
         >
           <div className="flex items-center justify-between bg-black text-[#f9f9f9] p-3.5">
@@ -68,7 +69,7 @@ const MovieDetails = ({ movie, showPlayer, setShowPlayer, trailerURL }) => {
               url={trailerURL}
               width="100%"
               height="100%"
-              style={{ position: "absolute", top: "0", left: "0" }}
+              style={{ position: 'absolute', top: '0', left: '0' }}
               controls={true}
               playing={showPlayer}
             />

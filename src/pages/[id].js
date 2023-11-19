@@ -1,7 +1,8 @@
-import Login from "@/components/Login";
-import MovieDetails from "@/components/MovieDetails";
-import { getSession, useSession } from "next-auth/react";
-import { useState } from "react";
+import Footer from '@/components/Footer';
+import Login from '@/components/Login';
+import MovieDetails from '@/components/MovieDetails';
+import { getSession, useSession } from 'next-auth/react';
+import { useState } from 'react';
 
 const MovieDetailPage = ({ movie }) => {
   const { data: session } = useSession();
@@ -10,20 +11,24 @@ const MovieDetailPage = ({ movie }) => {
   if (!session) return <Login />;
 
   const trailerIndex = movie.videos.results.findIndex(
-    (element) => element.type === "Trailer"
+    (element) => element.type === 'Trailer'
   );
 
   const trailerURL = `https://www.youtube.com/watch?v=${movie.videos?.results[trailerIndex]?.key}`;
 
   return (
-    <div>
-      <MovieDetails
-        movie={movie}
-        showPlayer={showPlayer}
-        setShowPlayer={setShowPlayer}
-        trailerURL={trailerURL}
-      />
-    </div>
+    <>
+      {' '}
+      <div>
+        <MovieDetails
+          movie={movie}
+          showPlayer={showPlayer}
+          setShowPlayer={setShowPlayer}
+          trailerURL={trailerURL}
+        />
+      </div>
+      <Footer />
+    </>
   );
 };
 
