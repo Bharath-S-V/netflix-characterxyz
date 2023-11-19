@@ -5,14 +5,19 @@ import { baseUrl } from '@/utils/constant';
 import { IoIosInformationCircle } from 'react-icons/io';
 import { FaPlay } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
-
 import dynamic from 'next/dynamic';
-import Footer from './Footer';
+import Head from 'next/head';
+
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 const MovieDetails = ({ movie, showPlayer, setShowPlayer, trailerURL }) => {
   return (
     <>
+      <Head>
+        <title>NetFlix</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/netflix_logo_icon_170919.ico" />
+      </Head>
       <Navbar />
       <div className="container">
         <div className="flex flex-col space-y-2 py-16 md:space-y-4 h-[100vh] justify-center lg:pb-12">
